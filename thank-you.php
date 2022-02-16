@@ -16,7 +16,7 @@ $dataLayer = array();
 <?php include 'inner_header.php';?>
 <!--thank u banner-->
 <div class="thanku_banner">
-  <img src="/images/thanku.png" alt="thanku.png" class="img-res">
+  <img src="<?php echo SITEURL; ?>/images/thanku.png" alt="thanku.png" class="img-res">
   <h2>For contacting us. We will reply soon.</h2>
   <h3>You might want to checkout our most popular tours listed below.</h3>
 </div>

@@ -2,80 +2,49 @@
 include('includes/config.php');
 include('includes/functions.php');
 
-if( !empty($_GET['cjevent']) && !isset($_COOKIE['CJEVENT']) ) {
-	setcookie('CJEVENT', $_GET['cjevent'], time() + (86400 * 30), "/"); // 86400 = 1 day
-}
-if( !empty($_GET['batcheventID']) && !isset($_COOKIE['batcheventID']) ) {
-	setcookie('batcheventID', $_GET['batcheventID'], time() + (86400 * 30), "/"); // 86400 = 1 day
-}
-
 $_SESSION['msg'] = '';
-if(isset($_POST['g-recaptcha-response']))
+if(isset($_POST['login']))
 {
-	$captcha=$_POST['g-recaptcha-response'];
-	if(!empty($captcha))
-	{
-		$response=json_decode(file_contents("https://www.google.com/recaptcha/api/siteverify?secret=".reCAPTCHA_SECRET."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
-		if($response['success'] == true)
-		{
-			extract($_POST);
-			//call email template for send signup mail for Admin
-			$htmlContent = "Hello {{name}},
-			<br><br>
-			Thank you for contacting us. We will reply soon.
-			<br><br>
-			E-Mail From <a href='https://www.discount.tours'>Discount.Tours</a>";
-						
-			$message2 = str_replace("{{name}}", $name, $htmlContent);
-			$message2 = str_replace("{{email}}", $email, $message2);
-			$message2 = str_replace("{{phone}}", $phone, $message2);
-			$message2 = str_replace("{{subject}}", $subject, $message2);
-			$message2 = str_replace("{{message}}", $message, $message2);
-			$message2 = str_replace("{{from_name}}", SITENAME, $message2);
-			
-			$subject = "Sub - $subject";
-			
-			$res1 = sendMail( array( $email, $name  ), $subject, $message2);
-							 
-			//call email template for send signup mail for Admin
-			$htmlContent1 = "Hello,
-			<br><br>
-			New contact from {{from_name}}. Details are
-			<br><br>
-			Subject: {{subject}}
-			<br><br>
-			Name: {{name}}<br>
-			Email: {{email}}<br>
-			Phone: {{phone}}<br>
-			<br><br>
-			{{message}}
-			<br><br>
-			E-Mail From <a href='https://www.discount.tours'>Discount.Tours</a>";
-			
-			$message1 = str_replace("{{name}}", $name, $htmlContent1);			
-			$message1 = str_replace("{{email}}", $email, $message1);
-			$message1 = str_replace("{{phone}}", $phone, $message1);
-			$message1 = str_replace("{{subject}}", $subject, $message1);
-			$message1 = str_replace("{{message}}", $message, $message1);
-			$message1 = str_replace("{{from_name}}", SITENAME, $message1);
-			
-			$subject = "Sub - $subject";
-			
-			$res2 = sendMail( array('info@discounttours.com', SITENAME), $subject, $message1);
-			
-			//echo '<pre>'; print_r(array($res1,$res2));			   
-			
-			if($res1 && $res2) 
-			{
-				//$_SESSION['msg'] = '<div class="alert alert-success">Thank you for contacting us. We will reply soon.</div>';
-				header('Location: /thank-you?'.$_SERVER['QUERY_STRING']); exit;
-			}
-		}
-		else
-		$_SESSION['msg'] = '<div class="alert alert-danger">Invalid captcha!</div>';
+	extract($_POST);
+	$error=[];
+	if(empty($email)) {
+		$error[] = 'Email address can not be blank!';
 	}
-	else
-	$_SESSION['msg'] = '<div class="alert alert-danger">Enter captcha!</div>';
+	else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		$error[] = 'Invalid Email address format!';
+	}
+	if(empty($password)) {
+		$error[] = 'Password can not be blank!';
+	}
+
+	if(empty($error))
+	{
+		$token = md5(rand());
+		echo $sql = "SELECT ID,concat(first_name,' ',last_name) as name,email,role,status 
+		FROM tour_users 
+		WHERE email='$email' and password='".md5($password)."'";
+		$query = $conn->query($sql);
+		$result = $query->fetch_object();
+		//print_r($result); exit;
+
+		if($result->ID)
+		{
+			if(!empty($_POST["remember"])) {
+				setcookie ("user_login",$email,time()+ (10 * 365 * 24 * 60 * 60));
+				setcookie ("user_password",$password,time()+ (10 * 365 * 24 * 60 * 60));
+			}
+			
+			$_SESSION['USER_ID'] = $result->ID;
+			$_SESSION['FULLNAME'] = $result->name;
+			$_SESSION['EMAIL'] = $result->email;
+			$_SESSION['ROLE'] = $result->role;
+			header('Location: '.SITEURL); 
+			exit;
+		}
+		else {
+			$error[] =  'Invalid Email/Password!';
+		}
+	}
 }
 ?><!DOCTYPE html>
 <html lang="en">
@@ -85,95 +54,61 @@ if(isset($_POST['g-recaptcha-response']))
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Contact Us to Know More About Discount Tours Info. Operators are standing by to answer your questions, feel free to email or call us +1 866-404-5115!"/>
 <meta name="keywords" content="Best Niagara Falls Sightseeing Tours, Tour Packages, Day Tour, Evening Tour, Small Group Custom Tour, Private Tour, Group Tours"/>
-<link rel="canonical" href="<?=SITEURL;?>/contact-us" />
-<title>Contact Us | Discount Tours Info | Tours Falls | Discount Tours</title>
-<?php include 'inner_header.php';?>
+<link rel="canonical" href="<?=SITEURL;?>/login" />
+<title>Login | Discount Tours Info | Tours Falls | Discount Tours</title>
+<?php include 'inner_header.php'; ?>
 <!--contact-->
 <div class="contact_wra">
     <div class="container">
         <div class="row">      
             <div class="col-lg-12">
                 <div class="contact_box">
-                <div class="form">
-      
-      <ul class="tab-group">
-        <li class="tab active"><a href="#signup">Sign Up</a></li>
-        <li class="tab"><a href="#login">Log In</a></li>
-      </ul>
-      
-      <div class="tab-content">
-        <div id="signup">   
-          <h1>Sign Up for Free</h1>
-          
-          <form action="/" method="post">
-          
-          <div class="top-row">
-            <div class="field-wrap">
-              <label>
-                First Name<span class="req">*</span>
-              </label>
-              <input type="text" required autocomplete="off" />
+					<div class="form-container">
+						<div class="left-content">
+							<h3 class="title">Discount.Tours</h3>
+							<h4 class="sub-title">Lorem ipsum dolor sit amet.</h4>
+						</div>
+						<div class="right-content">
+							<h3 class="form-title">Login</h3>
+							<form action="" class="form-horizontal" method="post">
+							<?php
+                                if(!empty($error)){
+                                    foreach($error as $err) {
+										if($err)
+                                        echo '<div class="alert alert-danger">'.$err.'</div>';
+                                    }
+                                }
+                                ?>
+								<div class="form-group">
+									<label>Email</label>
+									<input value="<?php echo isset($_POST['email']) ? $_POST['email'] :$_COOKIE['user_login'];?>" name="email" type="email" class="form-control" required>
+								</div>
+								<div class="form-group">
+									<label>Password</label>
+									<input value="<?php echo isset($_POST['password']) ? $_POST['password'] :$_COOKIE['user_password'];?>" name="password" type="password" class="form-control" required>
+								</div>
+								<button class="btn signin" name="login">Login</button>
+								<div class="remember-me">
+									<input type="checkbox" class="checkbox">
+									<span class="check-label">Remember Me</span>
+								</div>
+								<a href="<?=SITEURL;?>/forgot" class="forgot">Forgot Password</a>
+							</form>
+							
+							<span class="signup-link">Don't have an account? Sign up <a href="<?=SITEURL;?>/signup">here</a></span>
+						</div>
+					</div>
+				</div>
             </div>
-        
-            <div class="field-wrap">
-              <label>
-                Last Name<span class="req">*</span>
-              </label>
-              <input type="text"required autocomplete="off"/>
-            </div>
-          </div>
-
-          <div class="field-wrap">
-            <label>
-              Email Address<span class="req">*</span>
-            </label>
-            <input type="email"required autocomplete="off"/>
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              Set A Password<span class="req">*</span>
-            </label>
-            <input type="password"required autocomplete="off"/>
-          </div>
-          
-          <button type="submit" class="button button-block"/>Get Started</button>
-          
-          </form>
-
         </div>
-        
-        <div id="login">   
-          <h1>Welcome Back!</h1>
-          
-          <form action="/" method="post">
-          
-            <div class="field-wrap">
-            <label>
-              Email Address<span class="req">*</span>
-            </label>
-            <input type="email"required autocomplete="off"/>
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              Password<span class="req">*</span>
-            </label>
-            <input type="password"required autocomplete="off"/>
-          </div>
-          
-          <p class="forgot"><a href="#">Forgot Password?</a></p>
-          
-          <button class="button button-block"/>Log In</button>
-          
-          </form>
+    </div>
+</div>
+			
 
-        </div>
-        
-      </div><!-- tab-content -->
-      
-</div> <!-- /form -->
-                </div>
+
+
+
+				</div>
             </div>
         </div>
     </div>

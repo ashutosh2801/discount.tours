@@ -105,22 +105,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="row">
         <div class="col-lg-12">
-        	<?php
-          	if(isset($_COOKIE['USER_PARTNER'])) { 
-				$sql = "SELECT * FROM tour_users WHERE username='".$_COOKIE['USER_PARTNER']."'";
-				$result = $conn->query($sql);
-				if ($result->num_rows > 0) {
-					$user = $result->fetch_object();
-			?>
-			<div class="agent_name">Agent Name: <span><?php echo $user->name; ?></span><div class="clearfix"></div></div>
-			<?php unset($user); } } ?>
-			<div class="toll_free_mob"><i class="fa fa-phone"></i> Toll Free <strong>+1 866-404-5115</strong></div>
-			<div class="address_mob"><a href="#"><i class="fa fa-map-marker"></i></a></div>
-			<div class="mail_pc"><a href="mailto:info@discount.tours"><i class="fa fa-envelope-o"></i> info@discount.tours</a></div>
+        	<?php if(isset($_SESSION['USER_ID'])) {  ?>
+			<div class="agent_name"><span><i class="fa fa-user"></i> <?php echo $_SESSION['FULLNAME']; ?></span> <a href="<?php echo APPROOT; ?>logout"><i class="fa fa-sign-out"></i> Logout</a><div class="clearfix"></div></div>
+			<?php } ?>
+			<div class="mail_pc"><a href="tel:+1 866-404-5115"><i class="fa fa-phone"></i> +1 866-404-5115</a></div>
+			<div class="mail_pc right15"><a href="mailto:info@discount.tours"><i class="fa fa-envelope-o"></i> info@discount.tours</a></div>
+			<div class="mail_mob"><a href="tel:+1 866-404-5115"><i class="fa fa-phone"></i></a></div>
 			<div class="mail_mob"><a href="mailto:info@discount.tours"><i class="fa fa-envelope-o"></i></a></div>
-          
-			<div class="toll_free_mob"></div>
-
 			
 			<div class="toll_free_mob dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-flag"></i> <strong><?php echo $_COOKIE['country']; ?></strong> <span class="caret"></span></a>
@@ -147,7 +138,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </ul>
             </div>
 
+			<?php if(!isset($_SESSION['USER_ID'])) {  ?>
 			<div class="cart_head"><a href="<?php echo APPROOT; ?>login"><i class="fa fa-user"></i> <span>Login</span></a></div>
+			<?php }  ?>
 
 			<?php
 			$sessionId = session();

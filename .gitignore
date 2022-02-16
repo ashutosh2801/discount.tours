@@ -1,3 +1,5 @@
 products_xml/
 uploads/
+.DS_Store
+.htaccess
 includes/define.php
