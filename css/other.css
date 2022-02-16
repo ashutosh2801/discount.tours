@@ -1,0 +1,57 @@
+/* CSS Document */
+ul.row{padding:0; list-style:none;margin-bottom:0 !important;}
+ul.row li{list-style:none;}
+.gal lery img {height: 180px;}
+.collapse-expand { text-align:right; }
+._collapse { display:none; }
+.collapse-expand a, .collapse-expand a:hover { color:#00a8ff; padding:0 5px; }
+.itinerary-description { display:none; }
+.itinerary-description:first-child { display:block; }
+.overview {color:#00a8ff;font-size:28px;font-weight:600; margin:0 0 20px;}
+.schedule_list li h3 { cursor:pointer;}
+.mobile-button { margin:0; padding:0; position:fixed; bottom:0; left:0; right:0;  display:none; list-style:none; margin:0;  }
+.mobile-button li { display:inline-block; width:100%; text-align:center; }
+.print{background: #16597b; padding:6px 15px; border-radius:0px; color:#fff; border:1px solid #16597b; margin-bottom:10px; display:inline-block;}
+.print:hover{background: #fff; color:#000; border:1px solid #16597b;}
+.popular-tour { padding:0; margin:0; list-style:none; }
+
+.ui-autocomplete-loading {	background: white url("../images/ui-anim_basic_16x16.gif") right center no-repeat;}
+.ui-autocomplete {background:#fff;border-radius:0px; border: 1px solid #ccc; color:#fff; list-style:none;padding:0px; width:420px; margin-left: 20px; margin-top: 0px; }
+.ui-autocomplete .ui-menu-item { padding:5px; cursor:pointer; border-bottom: 1px solid #ccc; }
+.ui-autocomplete .ui-menu-item:before { content: "\f101"; font: normal normal normal 14px/1 FontAwesome; margin-right: 10px; color:#000;}
+.ui-autocomplete .ui-menu-item a { color:#000; }
+.ui-autocomplete .ui-menu-item:hover { background:#236b00; color:#fff; }
+.ui-autocomplete .ui-menu-item:hover a, .ui-autocomplete .ui-menu-item:hover:before { color:#fff; }
+.ui-helper-hidden-accessible { display:none; }
+.clear { clear:both; }
+.thumb {border-radius: 40px; float: left; margin-right: 15px; border: 1px solid #555; width: 42px; line-height: 38px; height: 42px; text-align: center; color: #fff; font-size: 18px; font-weight: 700; } 
+
+.bootstrap-datetimepicker-widget table th { width:30px; }
+.day { background:#E9F7D4; }
+.day:hover { background:#337ab7 !important; color:#fff; }
+.day.new { background:#fff; color:#fff !important; }
+.day.new:hover { background:#fff !important; color:#fff !important; }
+.bootstrap-datetimepicker-widget table td, .bootstrap-datetimepicker-widget table th { border-radius:0; }
+.bootstrap-datetimepicker-widget table td.new { background:#fff !important; color:#fff !important; text-shadow: none }
+.disabled:hover { background:none !important; }
+.error, .danger{background:#fae9e5;padding:5px;border:1px solid rgba(242,60,60,.5);margin-bottom:10px;color:#d9534f}
+.input-number { background:#fff !important;}
+.pay_total sup, .pay_btn_final sup, .booking_total_tbl sup, tfoot sup { text-decoration:underline; }
+
+.bootstrap-datetimepicker-widget table td.old { background:#fff; color:#fff; text-shadow:none; }
+.bootstrap-datetimepicker-widget table td.old:hover { background:#fff !important; color:#fff; text-shadow:none; }
+._more_photo, ._photo { display:none; }
+.more_photo_1, .photo_1 { display:block; }
+.time-slot { margin: 10px 0; padding: 0; list-style: none; }
+.time-slot li { display: inline-block; border: 1px solid #9E9E9E; padding: 2px 4px; margin-right: 2px; margin-bottom:2px; }
+.time-slot li.act, .time-slot li:hover{ background:#337ab7; cursor:pointer; color:#fff; }
+
+@media (max-width: 767px) {
+.ui-autocomplete {width:250px; }
+.gallery img {height: auto;}
+.mobile-button {display: block;z-index: 100;box-shadow: 0 0 5px #333; }
+.mobile-button .book, .mobile-button .gift { mar gin-top: 5px !important; }
+.book_tour_c { display:none; }
+.mobile-button .book_mob, .rezdy-custom { margin-bottom:0 !important; background:#2e9a0e !important; ;background: none;text-align: center;font-size: 16px;padding: 14px 30px;font-weight:500;text-transform: uppercase;text-shadow: 0 0px 1px #333;}
+.mobile-button .rezdy-custom{ width:100% !important;border-radius:0px !important}
+}

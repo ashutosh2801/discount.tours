@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /cart*
+Disallow: /checkout*
+Disallow: /confirmation*
+Disallow: /thank-you
+Disallow: /ajax/tours
+Disallow: /thank-you-secure-form
+Disallow: /secure-form
+Disallow: /tour-list
+Disallow: /strip-test
+Disallow: /staging/*
+Disallow: /staging*
+Disallow: /cron*
+Disallow: /accommodations/niagara-lakeview-retreat

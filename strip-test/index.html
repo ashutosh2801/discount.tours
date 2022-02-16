@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link href="payment.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/other.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    
+    <title>Starter Template for Bootstrap</title>
+  </head>
+
+<body>
+
+<div class="top_header_wra">
+<div class="container">
+<div class="row">
+    <div class="col-lg-12">
+      <div class="toll_free_mob"><i class="fa fa-phone"></i> Toll Free <strong>+1 800-653-2242</strong></div>
+      <div class="address_mob"><a href="#"><i class="fa fa-map-marker"></i></a></div>
+      <div class="mail_pc"><a href="mailto:info@toniagara.com"><i class="fa fa-envelope-o"></i> info@toniagara.com</a></div>
+      <div class="mail_mob"><a href="mailto:info@toniagara.com"><i class="fa fa-envelope-o"></i></a></div> 
+    </div>
+ </div>
+</div>
+</div>
+
+<nav class="navbar mynav">
+<div class="container">
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="" href="https://www.toniagara.com/"><img src="https://www.toniagara.com//images/logo.png" alt="logo.png" class="img-res logo_mobile" height="55"></a>
+</div>
+<div id="navbar" class="navbar-collapse collapse mynav_header">
+  <ul class="nav navbar-nav mynav2">                                                        
+    <li class="dropdown">
+      <a onclick="return open_link();" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Niagara Falls Tours Canada  <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="https://www.toniagara.com/tours/niagara-falls-day-tour">Niagara Falls Day Tour</a></li>
+        <li><a href="https://www.toniagara.com/tours/niagara-falls-evening-tour">Niagara Falls Evening Tour</a></li>
+        <li><a href="https://www.toniagara.com/niagara-falls-private-tours">Niagara Falls Private Tours</a></li>
+        <li><a href="https://www.toniagara.com/tours/niagara-falls-canada-helicopter-tour">Niagara Helicopter Tour</a></li>
+        <li><a href="https://www.toniagara.com/niagara-airplane-tours">Niagara Airplane Tours</a></li>
+        <li><a href="https://www.toniagara.com/niagara-falls-boat-tours">Niagara Falls Boat Tours</a></li>
+      </ul>
+    </li>
+    <li><a href="https://www.toniagara.com/niagara-falls-tours-usa">Niagara Falls Tours USA</a></li>
+    <li><a href="https://www.toniagara.com/tours">BOOK YOUR TOUR</a></li>  
+    <li><a href="https://www.toniagara.com/blog/gift-certificate">Gift Certificates</a></li>  
+    <li><a href="https://www.toniagara.com/blog/contact-us">Contact us</a></li>
+  </ul>
+</div><!--/.nav-collapse -->
+</div>
+</nav>
+
+<div class="day_banner_wra" style="background: url(https://www.toniagara.com/uploads/tours/20181205055632_559.jpg) 0 0 no-repeat; background-size: cover;">
+<div class="detail_banner_shadow">
+<div class="container">
+<div class="row">
+  <div class="col-lg-12">
+    <div class="banner_txt_l">
+
+    <h2>Toronto To Niagara Falls Day Tour <span></span></h2>
+    <div class="hour">
+    <i class="fa fa-clock-o"></i> 9.5 Hours  
+    <i class="fa fa-comment-o"></i> <a href="#reviews" class="reviews_active">199 Reviews</a>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    </div>
+    <div class="price2">CA$139</div>
+   </div>
+    
+  </div>
+  
+</div>
+</div>
+</div>
+</div>
+
+<!--payment detail-->
+<div class="reservation_wra">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="pay_head1">Reservation Form</h3>
+        <div class="pay_step">
+          <div class="pay_progress">
+          <div class="pay_step_box act"><span>1</span><br>Booking Detail</div>
+          <div class="pay_step_box"><span>2</span><br>Payment Info</div>
+          </div>
+        </div>      
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3 class="pay_form_head">Select Tour Date</h3>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3 class="pay_form_head">Quantity</h3>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label>Adults</label>
+            <div class="form-group pay_adult">
+			<div class="input-group">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="">
+				<span class="glyphicon glyphicon-minus"></span>
+			</button>
+			</span>
+			<input type="text" name="adults" id="adults" class="form-control input-number valid" onchange="tourPrice()" value="0" min="0" max="50" aria-invalid="false">
+			<input type="hidden" name="adults_price" value="0" id="adults_price">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="adults">
+			<span class="glyphicon glyphicon-plus"></span>
+			</button>
+			</span>
+			</div>
+		    </div>
+            
+            
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label>Children (Age 4-12 years)</label>
+            <div class="form-group pay_adult">
+			<div class="input-group">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="">
+				<span class="glyphicon glyphicon-minus"></span>
+			</button>
+			</span>
+			<input type="text" name="adults" id="adults" class="form-control input-number valid" onchange="tourPrice()" value="0" min="0" max="50" aria-invalid="false">
+			<input type="hidden" name="adults_price" value="0" id="adults_price">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="adults">
+			<span class="glyphicon glyphicon-plus"></span>
+			</button>
+			</span>
+			</div>
+		    </div>
+            
+            
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label>Seniors (Age 60+)</label>
+            <div class="form-group pay_adult">
+			<div class="input-group">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="">
+				<span class="glyphicon glyphicon-minus"></span>
+			</button>
+			</span>
+			<input type="text" name="adults" id="adults" class="form-control input-number valid" onchange="tourPrice()" value="0" min="0" max="50" aria-invalid="false">
+			<input type="hidden" name="adults_price" value="0" id="adults_price">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="adults">
+			<span class="glyphicon glyphicon-plus"></span>
+			</button>
+			</span>
+			</div>
+		    </div>
+            
+            
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label>Infants (Age 0-3 Years Free)</label>
+            <div class="form-group pay_adult">
+			<div class="input-group">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="">
+				<span class="glyphicon glyphicon-minus"></span>
+			</button>
+			</span>
+			<input type="text" name="adults" id="adults" class="form-control input-number valid" onchange="tourPrice()" value="0" min="0" max="50" aria-invalid="false">
+			<input type="hidden" name="adults_price" value="0" id="adults_price">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="adults">
+			<span class="glyphicon glyphicon-plus"></span>
+			</button>
+			</span>
+			</div>
+		    </div>
+            
+            
+          </div>
+        </div>
+        
+        <h3 class="pay_form_head">Pickup Location</h3>
+        <input class="pickup_location" type="text" placeholder="Super 8 by Wyndham Downtown Toronto">
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3 class="pay_form_head">Quantity <span>(optional)</span></h3>
+        <label class="pay_lable">Next Day Pickup <span class="addon_price">(CA$59.00 / add-on)</span> <b class="t_tip" data-toggle="tooltip" data-placement="bottom" title="You can stay over at the Niagara Falls and we will pick you up the next day in our Coach Bus. We will pick you up from the Sheraton on the Falls Hotel at 2:30-3:00PM or Niagara-On-The-Lake at 4:00PM.">?</b></label>
+        <div class="form-group pay_adult">
+			<div class="input-group">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="">
+				<span class="glyphicon glyphicon-minus"></span>
+			</button>
+			</span>
+			<input type="text" name="adults" id="adults" class="form-control input-number valid" onchange="tourPrice()" value="0" min="0" max="50" aria-invalid="false">
+			<input type="hidden" name="adults_price" value="0" id="adults_price">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="adults">
+			<span class="glyphicon glyphicon-plus"></span>
+			</button>
+			</span>
+			</div>
+		    </div>
+        <div class="t_tip_txt">You can stay over at the Niagara Falls and we will pick you up the next day in our Coach Bus. We will pick you up from the Sheraton on the Falls Hotel at 2:30-3:00PM or Niagara-On-The-Lake at 4:00PM.</div>
+            
+        <label class="pay_lable">Airport Drop-Off <span class="addon_price">(CA$49.00 / add-on)</span> <b class="t_tip" data-toggle="tooltip" data-placement="bottom" title="We drop you off at the Pearson airport on our way back from the Niagara Falls Tour. The bus arrives at the Airport between 8:00 and 8:30PM.">?</b></label>
+        <div class="form-group pay_adult">
+			<div class="input-group">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="">
+				<span class="glyphicon glyphicon-minus"></span>
+			</button>
+			</span>
+			<input type="text" name="adults" id="adults" class="form-control input-number valid" onchange="tourPrice()" value="0" min="0" max="50" aria-invalid="false">
+			<input type="hidden" name="adults_price" value="0" id="adults_price">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="adults">
+			<span class="glyphicon glyphicon-plus"></span>
+			</button>
+			</span>
+			</div>
+		    </div>
+        <div class="t_tip_txt">We drop you off at the Pearson airport on our way back from the Niagara Falls Tour. The bus arrives at the Airport between 8:00 and 8:30PM.</div>
+            
+        <label class="pay_lable">Lunch Buffet <span class="addon_price">(CA$35.00 / add-on)</span> <b class="t_tip" data-toggle="tooltip" data-placement="bottom" title="Full Canadian Buffet at the Sheraton Fallsview Restaurant.">?</b></label>
+        <div class="form-group pay_adult">
+			<div class="input-group">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="">
+				<span class="glyphicon glyphicon-minus"></span>
+			</button>
+			</span>
+			<input type="text" name="adults" id="adults" class="form-control input-number valid" onchange="tourPrice()" value="0" min="0" max="50" aria-invalid="false">
+			<input type="hidden" name="adults_price" value="0" id="adults_price">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="adults">
+			<span class="glyphicon glyphicon-plus"></span>
+			</button>
+			</span>
+			</div>
+		    </div>
+        <div class="t_tip_txt">Full Canadian Buffet at the Sheraton Fallsview Restaurant.</div>
+            
+        <label class="pay_lable">Lunch Buffet - Child Under 12 YRS OLD  <span class="addon_price">(CA$20.00 / add-on)</span> <b class="t_tip" data-toggle="tooltip" data-placement="bottom" title="Full Canadian Buffet at the Sheraton Fallsview Restaurant.">?</b></label>
+        <div class="form-group pay_adult">
+			<div class="input-group">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="">
+				<span class="glyphicon glyphicon-minus"></span>
+			</button>
+			</span>
+			<input type="text" name="adults" id="adults" class="form-control input-number valid" onchange="tourPrice()" value="0" min="0" max="50" aria-invalid="false">
+			<input type="hidden" name="adults_price" value="0" id="adults_price">
+			<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="adults">
+			<span class="glyphicon glyphicon-plus"></span>
+			</button>
+			</span>
+			</div>
+		    </div>
+        <div class="t_tip_txt">Full Canadian Buffet at the Sheraton Fallsview Restaurant.</div>
+            
+        
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3 class="pay_form_head">Contact Info</h3>
+        <label class="pay_lable2">Name</label>
+        <input type="text" placeholder="Full Name" class="pickup_location">
+        <label class="pay_lable2">Email</label>
+        <input type="text" placeholder="Email Address" class="pickup_location">
+        <label class="pay_lable2">Phone</label>
+        <input type="text" placeholder="Phone Number" class="pickup_location">
+        
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="pay_btn">
+        <button class="pay_continue">Continue</button>
+        </div>
+      </div>
+    </div>
+    
+    
+    </div>
+  </div>
+</div>
+<!--end payment detail-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+</html>

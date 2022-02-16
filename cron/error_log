@@ -1,0 +1,4 @@
+[12-Mar-2020 17:01:05 Canada/Eastern] PHP Fatal error:  Call to a member function fetch_object() on boolean in /home/toniagara/public_html/cron/mailgun-cron.php on line 19
+[13-Mar-2020 21:01:43 Canada/Eastern] PHP Fatal error:  Call to a member function fetch_object() on boolean in /home/toniagara/public_html/cron/mailgun-cron.php on line 19
+[15-Mar-2020 02:01:02 Canada/Eastern] PHP Fatal error:  Call to a member function fetch_object() on boolean in /home/toniagara/public_html/cron/mailgun-cron.php on line 19
+[14-Jul-2020 06:02:07 Canada/Eastern] PHP Fatal error:  Call to a member function fetch_object() on boolean in /home/toniagara/public_html/cron/mailgun-cron.php on line 19
