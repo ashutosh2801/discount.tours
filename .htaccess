@@ -8,14 +8,14 @@ RewriteBase /uploads/discounttours/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-#RewriteRule ^/?(.*?)/all?$ /country-all.php?country=$1&%{QUERY_STRING}  [NC,L]
-#RewriteRule ^/?category/(.*?)/?$ /category.php?slug=$1&%{QUERY_STRING}  [NC,L]
-#RewriteRule ^/?destinations/(.*?)/(.*?)/?$ /destination.php?slug=$1&id=$2&%{QUERY_STRING}  [NC,L]
-#RewriteRule ^/?agent/(.*?)/?$ /user.php?username=$1&%{QUERY_STRING} [NC,L]
-RewriteRule ^/?tours/(.*?)/?$ /tour_detail.php?slug=$1&%{QUERY_STRING} [NC,QSA,L]
+RewriteRule ^/?(.*?)/all?$ /country-all.php?country=$1&%{QUERY_STRING}  [NC,L]
+RewriteRule ^/?category/(.*?)/?$ /category.php?slug=$1&%{QUERY_STRING}  [NC,L]
+RewriteRule ^/?destinations/(.*?)/(.*?)/?$ /destination.php?slug=$1&id=$2&%{QUERY_STRING}  [NC,L]
+RewriteRule ^/?agent/(.*?)/?$ /user.php?username=$1&%{QUERY_STRING} [NC,L]
+RewriteRule ^/?tours/(.*?)/?$ /tour_detail.php?slug=$1&%{QUERY_STRING} [NC,L]
 
-#RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /tour_detail\.php\?slug=([^\&\ ]+)
-#RewriteRule ^/?tour_detail\.php$ /tours/%1? [L,R=301]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /tour_detail\.php\?slug=([^\&\ ]+)
+RewriteRule ^/?tour_detail\.php$ /tours/%1? [L,R=301]
 
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /user\.php\?username=([^\&\ ]+)
 RewriteRule ^/?user\.php$ /agent/%1? [L,R=301]
@@ -24,7 +24,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f 
 RewriteRule ^(.*)$ $1.php
 
-#ErrorDocument 404 /error
+ErrorDocument 404 /error
 
 # TN START GZIP COMPRESSION
 <IfModule mod_gzip.c>

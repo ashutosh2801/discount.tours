@@ -215,7 +215,7 @@ if ($result0->num_rows > 0) {
               <?php echo "US $".($tour->original_price); ?>
             </div>
           <div class="btn_wra1">
-          <a class="rezdy-custom" href="<?php echo $tour->tour_link; ?>" target="_blank">Book This Tour <i class="fa fa-check" aria-hidden="true"></i></a>
+          <a class="rezdy-custom" href="<?php echo '/cart?id='.$tour->ID; ?><?php //echo $tour->tour_link; ?>" target="_blank">Book This Tour <i class="fa fa-check" aria-hidden="true"></i></a>
           </div>
           </div>
           <br />

@@ -38,14 +38,14 @@ if(!empty($_GET['slug']))
 		$sql2 = "UPDATE `tour_tours` SET `tour_count`='$tour_count' WHERE ID=".$tour->ID.";";
 		$conn->query($sql2);
 	} else {
-    //header('Location: /error?url=/tours/'.$_GET['slug']);
-    header('Location: /');
-		exit;
+    	//header('Location: /error?url=/tours/'.$_GET['slug']);
+    	//header('Location: /');
+		//exit;
 	}
 } 
 else {
-	header('Location: /tours');
-	exit;
+	//header('Location: /tours');
+	//exit;
 }
 $no_reviews = 0;
 $sql0 = "SELECT tour_id FROM tour_reviews WHERE tour_id='".$tour->ID."'";

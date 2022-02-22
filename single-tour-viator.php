@@ -176,7 +176,7 @@
               <?php echo $big_price; ?>
             </div>
           <div class="btn_wra1">
-          <a class="rezdy-custom" href="<?php echo $tour->tour_link; ?>" target="_blank">Book This Tour <i class="fa fa-check" aria-hidden="true"></i></a>
+          <a class="rezdy-custom" href="<?php echo SITEURL.'/cart?id='.$tour->ID; ?><?php //echo $tour->tour_link; ?>" target="_blank">Book This Tour <i class="fa fa-check" aria-hidden="true"></i></a>
           </div>
           </div>
           <br />
@@ -285,7 +285,7 @@
                       <?php } else { ?>
                       <a id="button-booking" class="rezdy rezdy-modal rezdy-custom" href="<?php echo $tour->xola_code; ?>">Book This Tour <i class="fa fa-check" aria-hidden="true"></i></a>
                       <?php }*/ ?>
-                      <a class="rezdy-custom" href="<?php echo '/cart?id='.$tour->ID; ?>">Book This Tour <i class="fa fa-check" aria-hidden="true"></i></a>
+                      <a class="rezdy-custom" href="<?php echo SITEURL.'/cart?id='.$tour->ID; ?>">Book This Tour <i class="fa fa-check" aria-hidden="true"></i></a>
                     </div>
                     
                     
@@ -325,7 +325,7 @@
                 
               
               <div class="btn_wra3">
-                <a class="rezdy-custom" href="<?php echo $tour->tour_link; ?>" target="_blank">Book This Tour <i class="fa fa-check" aria-hidden="true"></i></a>
+                <a class="rezdy-custom" href="<?php echo SITEURL.'/cart?id='.$tour->ID; ?><?php //echo $tour->tour_link; ?>" target="_blank">Book This Tour <i class="fa fa-check" aria-hidden="true"></i></a>
               </div>
                       
               <?php if(trim(strip_tags($tour->pickup_information)) && trim(strip_tags($tour->pickup_information))!='NA') { ?>
@@ -366,7 +366,7 @@
 <!--end tab matter-->
 
 <ul class="mobile-button">
-  <li><a class="rezdy-custom" href="<?php echo '/cart?id='.$tour->ID; ?>">Book This Tour <i class="fa fa-check" aria-hidden="true"></i></a></li>
+  <li><a class="rezdy-custom" href="<?php echo SITEURL.'/cart?id='.$tour->ID; ?>">Book This Tour <i class="fa fa-check" aria-hidden="true"></i></a></li>
 </ul>
 
 <script>

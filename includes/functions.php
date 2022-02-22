@@ -264,7 +264,8 @@ function query_all($conn, $table, $where=1, $order='`order` ASC') {
 }
 
 function tour_detail($conn, $id) {
-	$sql = "SELECT * FROM tour_tours WHERE ID=$id";
+	$priceLable = 'Price'.$_COOKIE['currency'];
+	$sql = "SELECT A.*, B.price FROM tour_tours as A JOIN tour_pricing as B ON A.ID=B.tour_id WHERE A.ID=$id AND B.lable='$priceLable'";
 	$result = $conn->query($sql);
 	return $result->fetch_object();
 }

@@ -13,19 +13,19 @@ if(!empty($_GET['id']))
 	$_SESSION['page_url'] = '/cart?id='.$_GET['id'];
 	$tour_detail = tour_detail($conn, (int)$_GET['id']);
 	if ( $tour_detail->ID ) {
-		$adults_price 	= currency($conn, $tour_detail->adults_price, $tour_detail->currency);
-		$children_price = currency($conn, $tour_detail->children_price, $tour_detail->currency);
-		$seniors_price 	= currency($conn, $tour_detail->seniors_price, $tour_detail->currency);
-		$infants_price 	= currency($conn, $tour_detail->infants_price, $tour_detail->currency);
+		//$adults_price 	= currency($conn, $tour_detail->adults_price, $tour_detail->currency);
+		//$children_price = currency($conn, $tour_detail->children_price, $tour_detail->currency);
+		//$seniors_price 	= currency($conn, $tour_detail->seniors_price, $tour_detail->currency);
+		//$infants_price 	= currency($conn, $tour_detail->infants_price, $tour_detail->currency);
 	}
 	else {
-		header('Location: /error?url='.$_SESSION['page_url']);
-		exit;
+		//header('Location: /error?url='.$_SESSION['page_url']);
+		//exit;
 	}
 }
 else {
-	header('Location: /tours');
-	exit;
+	//header('Location: /tours');
+	//exit;
 }
 
 $user = array();
@@ -295,24 +295,24 @@ if(!empty($_POST['id']))
 				}
 			}
 
-echo "<script>
-var dataLayer  = window.dataLayer || [];
-dataLayer.push({
-	'event': 'addToCart',
-	'ecommerce': {
-		'currencyCode': 'CAD',
-		'add': {
-		'products': [{
-				'name': '".$tour_detail->title."',
-				'id': '".$tour_detail->ID."',
-				'price': '".$adults_price."',
-				'category': '".$tour_detail->category."',
-				'quantity': '".$adults."'
-			}]
-		}
-	}
-});
-</script>";
+	echo "<script>
+		var dataLayer  = window.dataLayer || [];
+		dataLayer.push({
+			'event': 'addToCart',
+			'ecommerce': {
+				'currencyCode': 'CAD',
+				'add': {
+				'products': [{
+						'name': '".$tour_detail->title."',
+						'id': '".$tour_detail->ID."',
+						'price': '".$adults_price."',
+						'category': '".$tour_detail->category."',
+						'quantity': '".$adults."'
+					}]
+				}
+			}
+		});
+		</script>";
 			
 			$conn->query($sql2);
 			header('Location: '.APPROOT.'checkout');
@@ -348,7 +348,7 @@ $user_result = $user_query->fetch_object();
 <?php } ?>
 <?php include 'inner_header.php';?>
 <!--banner-->
-<div class="day_banner_wra" style="background: url(<?php echo tour_banner($tour_detail->banner_image); ?>) 0 0 no-repeat; background-size: cover;">
+<div class="day_banner_wra">
   <div class="detail_banner_shadow">
     <div class="container">
       <div class="row">
@@ -365,8 +365,22 @@ $user_result = $user_query->fetch_object();
                 <i class="fa fa-star"></i>
             </div>
             <div class="price2">
-            	<?php echo $tour_detail->original_price ? '<span>CA$'.$tour_detail->original_price.'</span>':''; ?>
-              <?php echo "CA$".$adults_price; ?>
+
+<?php
+if($tour_detail->type=='viator') {
+	$price = price_calculator($tour_detail->price);
+	$cut_price = '<span>'. $price['sub_price'].'</span> ';
+	$big_price = $price['total_price'];
+}
+else {
+	$adults_price = currency($conn, $tour_detail->adults_price, $tour_detail->currency);
+	$cut_price = $tour_detail->original_price ? '<span>'.number_format($tour_detail->original_price,2).'</span> ':'';
+	$big_price = number_format($adults_price,2);
+}
+?>
+
+
+            	<?php echo $cut_price.$big_price; ?>
             </div>
           </div>
         </div>
@@ -405,9 +419,9 @@ $user_result = $user_query->fetch_object();
         <?php echo $qty_msg; $qty_msg=''; ?>
         <div id="quantity"></div>
         <div class="row">
-        	<?php if($tour_detail->adults_price) { ?>
+        <?php if($tour_detail->adults_price) { ?>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<?php
+			<?php
             if( $user_result->adults ) $adults = $user_result->adults;
             else if( $_POST['adults'] ) $adults = $_POST['adults'];
             else if( $tour_detail->max_people ) $adults = $tour_detail->max_people;
@@ -515,7 +529,7 @@ $user_result = $user_query->fetch_object();
         <div style="display:<?php echo $tour_detail->allow_pickup_location ? 'block' : 'none'; ?>">
         <h3 class="pay_form_head">Pickup Location <span>(optional)</span></h3>
         <?php echo $pc_msg; $pc_msg=''; ?>
-				<?php
+		<?php
         if( $user_result->pickup_location ) $pickup_location = $user_result->pickup_location;
         else if( $_POST['pickup_location'] ) $pickup_location = $_POST['pickup_location'];
         else $pickup_location = '';
